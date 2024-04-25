@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" integrity="sha512-x+dM7rN4t6vw8zg+eTmGbNsoU2+qYc+fjXK85eyEWY0ZOomWPlusXQlK24SXXijuhWJx/8R8Jx54X5Z5zynwgUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="black.png" hreflang="en-us">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="body">
+<div class="bg-container">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">To-Do List</h1>
+        <div class="add-task">
+            <input type="text" id="taskInput" class="form-control mb-2" placeholder="Add a new task">
+            <select id="taskColor" class="form-select mb-2">
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="white">White</option>
+            </select>
+            <button id="addButton" class="btn btn-primary">Add</button>
+        </div>
+        <ul id="taskList" class="list-unstyled"></ul>
+    </div>
+</div>
+<script src="script.js"></script>
+<script>
+    // Fetch a random wallpaper from Unsplash API
+    fetch('https://source.unsplash.com/random/?wallpaper')
+        .then(response => {
+            document.querySelector('.body').style.backgroundImage = `url(${response.url})`;
+        })
+        .catch(error => {
+            console.error('Error fetching wallpaper:', error);
+        });
+</script>
+</body>
+</html>

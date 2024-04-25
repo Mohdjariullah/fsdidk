@@ -1,0 +1,95 @@
+body {
+  background-color: #795151; /* Grey background */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-size: cover;
+}
+
+h1 {
+  color: #333;
+}
+
+.add-task {
+  margin: 20px;
+  background-color: #fff; /* Background color for the task input area */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input {
+  padding: 5px;
+  width: 70%;
+}
+
+select {
+  width: 20%;
+  padding: 5px;
+}
+
+button {
+  background-color: #0077b6;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #005f8b;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+button.delete {
+  background-color: #f94144;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button.delete:hover {
+  background-color: #e63946;
+}
+
+/* Custom task color styles */
+li.green {
+  background-color: #98FB98; /* Light Green */
+}
+
+li.red {
+  background-color: #FF6B6B; /* Light Red */
+}
+
+li.blue {
+  background-color: rgb(40, 37, 87); /* Slate Blue */
+}
+
+li.white {
+  background-color: #FFFFFF; /* White */
+}
+body, html {
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+}
+
+/* .bg-container {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+} */

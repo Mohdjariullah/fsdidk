@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Gallery</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding-top: 50px;
+      }
+
+      .project-card {
+        margin-bottom: 30px;
+      }
+
+      .project-card .card-body {
+        text-align: center;
+      }
+
+      .project-card .card-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .project-image {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .buttons {
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 30px;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #353030;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+      }
+
+      .buttons {
+        margin-top: 50px;
+        text-align: center;
+        border-radius: 30px;
+      }
+
+      .blob-btn {
+        z-index: 1;
+        position: relative;
+        padding: 20px 46px;
+        margin-bottom: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #0505a9;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        transition: color 0.5s;
+        cursor: pointer;
+        border-radius: 30px;
+      }
+      .blob-btn:before {
+        content: "";
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #0505a9;
+        border-radius: 30px;
+      }
+      .blob-btn:after {
+        content: "";
+        z-index: -2;
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s 0.2s;
+        border-radius: 30px;
+      }
+      .blob-btn:hover {
+        color: #ffffff;
+        border-radius: 30px;
+      }
+      .blob-btn:hover:after {
+        transition: all 0.3s;
+        left: 0;
+        top: 0;
+        border-radius: 30px;
+      }
+      .blob-btn__inner {
+        z-index: -1;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background: #ffffff;
+      }
+      .blob-btn__blobs {
+        position: relative;
+        display: block;
+        height: 100%;
+        filter: url("#goo");
+      }
+      .blob-btn__blob {
+        position: absolute;
+        top: 2px;
+        width: 25%;
+        height: 100%;
+        background: #0505a9;
+        border-radius: 100%;
+        transform: translate3d(0, 150%, 0) scale(1.7);
+        transition: transform 0.45s;
+      }
+      @supports (filter: url("#goo")) {
+        .blob-btn__blob {
+          transform: translate3d(0, 150%, 0) scale(1.4);
+        }
+      }
+      .blob-btn__blob:nth-child(1) {
+        left: 0%;
+        transition-delay: 0s;
+      }
+      .blob-btn__blob:nth-child(2) {
+        left: 30%;
+        transition-delay: 0.08s;
+      }
+      .blob-btn__blob:nth-child(3) {
+        left: 60%;
+        transition-delay: 0.16s;
+      }
+      .blob-btn__blob:nth-child(4) {
+        left: 90%;
+        transition-delay: 0.24s;
+      }
+      .blob-btn:hover .blob-btn__blob {
+        transform: translateZ(0) scale(1.7);
+      }
+      @supports (filter: url("#goo")) {
+        .blob-btn:hover .blob-btn__blob {
+          transform: translateZ(0) scale(1.4);
+        }
+      }
+      .heading-black {
+        font-size: 48px;
+        font-weight: bold;
+        display: inline-block;
+        background-image: linear-gradient(
+          to bottom,
+          #ff0000,
+          #ff0027,
+          #ff003f,
+          #ff0054,
+          #ff0068,
+          #fc0076,
+          #f80084,
+          #f20092,
+          #e6009f,
+          #d500ac,
+          #c100ba,
+          #a700c8
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-transform: capitalize;
+      }
+      .txt-color {
+        display: inline-block;
+
+        background-image: linear-gradient(
+          to bottom,
+          #ff0000,
+          #ff0027,
+          #ff003f,
+          #ff0054,
+          #ff0068,
+          #fc0076,
+          #f80084,
+          #f20092,
+          #e6009f,
+          #d500ac,
+          #c100ba,
+          #a700c8
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-5 heading-black">Portfolio Gallery</h1>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title txt-color">Weather App</h5>
+              <img
+                src="weather/demo.JPG"
+                alt="Weather App"
+                class="project-image"
+              />
+              <div class="buttons">
+                <button class="blob-btn" onclick="redirectToWeather()">
+                  View Project
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title txt-color">To-Do List App</h5>
+              <div class="iframe-container">
+                <img
+                  src="To-do/demo.JPG"
+                  alt="Weather App"
+                  class="project-image"
+                />
+              </div>
+              <div class="buttons">
+                <button class="blob-btn" onclick="redirectToToDo()">
+                  View Project
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title txt-color">Personal Website</h5>
+              <div class="iframe-container">
+                <img
+                  src="portfolio/demo.JPG"
+                  alt="Weather App"
+                  class="project-image"
+                />
+              </div>
+              <div class="buttons" onclick="redirectToPortfolio()">
+                <button class="blob-btn">
+                  View Project
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title txt-color">Budget Tracker</h5>
+              <img
+                src="budget/budgetdemo.JPG"
+                alt="Budget Tracker"
+                class="project-image"
+              />
+              <div class="buttons">
+                <button class="blob-btn" onclick="redirectToBudget()">
+                  View Project
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title txt-color">Calculator</h5>
+              <img
+                src="calculator/demo.JPG"
+                alt="Calculator"
+                class="project-image"
+              />
+              <div class="buttons">
+                <button class="blob-btn" onclick="redirectToCalculator()">
+                  View Project
+                  <span class="blob-btn__inner">
+                    <span class="blob-btn__blobs">
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                      <span class="blob-btn__blob"></span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<footer>
+  <div>
+    <center>
+      Made with &hearts; by 
+    <p class="text-center mt-5 txt-color">
+      <a href="https://www.linkedin.com/in/mohdjariullah/" target="_blank">Mohammed Jariullah </a> &copy; 2024 
+    </p>
+    <p class="text-muted text-center">
+      This website is created for educational purposes only. Any resemblance to actual products or brands is purely coincidental.
+      &copy; Copyright 2024
+    </p>
+  </div>
+</center>
+</footer>
+    <script>
+      function redirectToBudget() {
+        window.location.href = "budget/budget.html";
+      }
+      function redirectToToDo() {
+        window.location.href = "To-do/index.html";
+      }
+      function redirectToPortfolio() {
+        window.location.href = "portfolio/index.html";
+      }
+      function redirectToWeather() {
+        window.location.href = "weather/index.html";
+      }
+      function redirectToCalculator() {
+        window.location.href = "calculator/index.html";
+      }
+    </script>
+  </body>
+</html>
