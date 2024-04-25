@@ -194,9 +194,15 @@
 .tbl_tr_content button:first-child {
   background-color: var(--success);
 }
+    @media screen and (min-width: 768px) {
+        .hh {
+            display: none;
+        }
+    }
   </style>
   <body>
     <div class="container">
+      <p class="text-muted hh" style="color: var(--danger);"> Recommended to use in Desktop Mode</p>
       <h2>Budget Tracker</h2>
       <div class="error_message">
         <p>Please Enter Budget Amount | More Than 0</p>
